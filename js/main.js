@@ -26,12 +26,25 @@
 
 // Question 2: Power function
 
-function power (num, exp) {
-    if(exp === 0){
-        return 1
-    }
-    return num * power(num, exp-1)
+// function power (num, exp) {
+//     if(exp === 0){
+//         return 1
+//     }
+//     return num * power(num, exp-1)
 
+// }
+
+// console.log(power(2,3))
+
+
+
+// Question 3: Calculate factorial
+
+function factorial (num){
+    if(num===0){
+        return 0
+    }
+    return num * factorial(num-1)
 }
 
-console.log(power(2,3))
+console.log(factorial(5))
