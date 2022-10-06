@@ -147,17 +147,31 @@
 // Question 8
 
 
-function sumSquares(arr, total = 0){
-    if(arr.length === 0){
-        return total
+// function sumSquares(arr, total = 0){
+//     if(arr.length === 0){
+//         return total
+//     }
+//     let newArr = arr.shift()
+//     if(Array.isArray(newArr)){
+//         total += sumSquares(newArr)
+//     }else if(Number.isInteger(newArr)){
+//         total = newArr*newArr + total
+//     }
+//     return sumSquares(arr, total)
+// }
+
+// console.log(sumSquares([10,[[10],10],[10]]))
+
+
+
+// Question 9
+
+function replicate(reps, num, newArr = []) {
+    if(reps <= 0){
+        return newArr
     }
-    let newArr = arr.shift()
-    if(Array.isArray(newArr)){
-        total += sumSquares(newArr)
-    }else if(Number.isInteger(newArr)){
-        total = newArr*newArr + total
-    }
-    return sumSquares(arr, total)
+    newArr.push(num)
+    return replicate (reps-1, num, newArr)
 }
 
-console.log(sumSquares([10,[[10],10],[10]]))
+console.log(replicate(1, 69))
