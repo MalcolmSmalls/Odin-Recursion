@@ -76,14 +76,47 @@
 
 // Question 5: Product of an array
 
-function productOfArray(arr, total = 1){
-    if(arr.length === 0){
-        return total
+// function productOfArray(arr, total = 1){
+//     if(arr.length === 0){
+//         return total
+//     }
+//     total = arr[0] * total
+//     arr.shift()
+//     return productOfArray(arr, total)
+// }
+
+
+// console.log(productOfArray([1,2,3]))
+
+
+// Question 6: Search JS object
+
+
+var nestedObject = {
+    data: {
+        info: {
+            stuff: {
+                thing: {
+                    moreStuff: {
+                        magicNumber: 44,
+                        something: 'foo2'
+                    }
+                }
+            }
+        }
     }
-    total = arr[0] * total
-    arr.shift()
-    return productOfArray(arr, total)
 }
 
+function contains(obj, term) {
+    for(const key in obj){
+        if(obj[key]===term){
+            return true
+        }
+        if (typeof obj[key] === 'object'){
+            return contains(obj[key], term)
+        }
+    }
+    return false
+}
 
-console.log(productOfArray([1,2,3]))
+console.log(contains(nestedObject, 'foo'))
