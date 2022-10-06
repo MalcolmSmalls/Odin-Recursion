@@ -40,11 +40,34 @@
 
 // Question 3: Calculate factorial
 
-function factorial (num){
-    if(num===0){
-        return 0
+// function factorial (num){
+//     if(num===0){
+//         return 1
+//     }
+//     return num * factorial(num-1)
+// }
+
+// console.log(factorial(5))
+
+
+
+// Question 4: Check all values in an array
+
+function all (arr, cb){
+    if(arr.length === 0){
+        return true
     }
-    return num * factorial(num-1)
+    if(cb(arr[0])){
+        arr.shift()
+        return all(arr, cb)
+    }else{
+        return falses
+    }
 }
 
-console.log(factorial(5))
+let newArr = [1,2,3]
+let newCB = num => {
+    return num < 7
+}
+
+console.log(all(newArr, newCB))
