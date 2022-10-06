@@ -92,31 +92,53 @@
 // Question 6: Search JS object
 
 
-var nestedObject = {
-    data: {
-        info: {
-            stuff: {
-                thing: {
-                    moreStuff: {
-                        magicNumber: 44,
-                        something: 'foo2'
-                    }
-                }
-            }
-        }
+// var nestedObject = {
+//     data: {
+//         info: {
+//             stuff: {
+//                 thing: {
+//                     moreStuff: {
+//                         magicNumber: 44,
+//                         something: 'foo2'
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// function contains(obj, term) {
+//     for(const key in obj){
+//         if(obj[key]===term){
+//             return true
+//         }
+//         if (typeof obj[key] === 'object'){
+//             return contains(obj[key], term)
+//         }
+//     }
+//     return false
+// }
+
+// console.log(contains(nestedObject, 'foo'))
+
+
+
+
+
+
+// Question 7: Parse a multi-dimensional array
+
+function totalIntegers(arr, total = 0){
+    if(arr.length === 0){
+        return total
     }
+    let newArr = arr.shift()
+    if(Array.isArray(newArr)){
+        total += totalIntegers(newArr)
+    }else if(Number.isInteger(newArr) === true){
+        total++
+    }
+    return totalIntegers(arr, total)
 }
 
-function contains(obj, term) {
-    for(const key in obj){
-        if(obj[key]===term){
-            return true
-        }
-        if (typeof obj[key] === 'object'){
-            return contains(obj[key], term)
-        }
-    }
-    return false
-}
-
-console.log(contains(nestedObject, 'foo'))
+console.log(totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]))
