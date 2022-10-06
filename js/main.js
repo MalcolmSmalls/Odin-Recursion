@@ -128,17 +128,36 @@
 
 // Question 7: Parse a multi-dimensional array
 
-function totalIntegers(arr, total = 0){
+// function totalIntegers(arr, total = 0){
+//     if(arr.length === 0){
+//         return total
+//     }
+//     let newArr = arr.shift()
+//     if(Array.isArray(newArr)){
+//         total += totalIntegers(newArr)
+//     }else if(Number.isInteger(newArr) === true){
+//         total++
+//     }
+//     return totalIntegers(arr, total)
+// }
+
+// console.log(totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]))
+
+
+// Question 8
+
+
+function sumSquares(arr, total = 0){
     if(arr.length === 0){
         return total
     }
     let newArr = arr.shift()
     if(Array.isArray(newArr)){
-        total += totalIntegers(newArr)
-    }else if(Number.isInteger(newArr) === true){
-        total++
+        total += sumSquares(newArr)
+    }else if(Number.isInteger(newArr)){
+        total = newArr*newArr + total
     }
-    return totalIntegers(arr, total)
+    return sumSquares(arr, total)
 }
 
-console.log(totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]))
+console.log(sumSquares([10,[[10],10],[10]]))
