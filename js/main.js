@@ -53,21 +53,37 @@
 
 // Question 4: Check all values in an array
 
-function all (arr, cb){
+// function all (arr, cb){
+//     if(arr.length === 0){
+//         return true
+//     }
+//     if(cb(arr[0])){
+//         arr.shift()
+//         return all(arr, cb)
+//     }else{
+//         return false
+//     }
+// }
+
+// let newArr = [1,2,3]
+// let newCB = num => {
+//     return num < 7
+// }
+
+// console.log(all(newArr, newCB))
+
+
+
+// Question 5: Product of an array
+
+function productOfArray(arr, total = 1){
     if(arr.length === 0){
-        return true
+        return total
     }
-    if(cb(arr[0])){
-        arr.shift()
-        return all(arr, cb)
-    }else{
-        return falses
-    }
+    total = arr[0] * total
+    arr.shift()
+    return productOfArray(arr, total)
 }
 
-let newArr = [1,2,3]
-let newCB = num => {
-    return num < 7
-}
 
-console.log(all(newArr, newCB))
+console.log(productOfArray([1,2,3]))
